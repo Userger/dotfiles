@@ -5,6 +5,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$PATH:/home/yegor/.python3.12/bin/"
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/home/yegor/.nodejs/bin/"
+export PATH="$PATH:/usr/lib/zig"
+export PATH="$PATH:/home/yegor/.ghostty/bin"
 # export PATH="$PATH:/home/yegor/scripts/"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -125,30 +130,27 @@ alias cd....="cd ../../../../"
 alias s=source
 cdfunc() {
     # to change exclude go to /home/user/.config/fd/ignore
-    dir=$(fd -H -t d . $1 | fzf --preview="tree -L 2 {} | head -n 50")
+    dir=$(fdfind -H -t d . $1 | fzf --preview="tree -L 2 {} | head -n 50")
     if [ ${#dir} -gt 0 ]; then
         cd $dir
     fi
 }
 alias cdf=cdfunc
 vimfunc() {
-    fd -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(vim {})"
+    fdfind -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(vim {})"
 }
 alias vf=vimfunc
 
 nvimfunc() {
-    fd -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(nvim {})"
+    fdfind -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(nvim {})"
 }
 alias nvf=nvimfunc
 
+alias glog="git --no-pager log --graph --oneline"
+alias nts="$HOME/my_scripts/obsidian/nts"
 
 
 set -o ignoreeof
-
-
-#if [[ -n "$TMUX" ]]; then
-#    tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
-#fi
 
 function sv() {
     source *env/bin/activate &&
@@ -167,3 +169,6 @@ fi
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # source acd_func.sh
+#
+
+alias envim='NVIM_APPNAME=nvimexample nvim'

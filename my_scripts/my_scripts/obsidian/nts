@@ -1,0 +1,16 @@
+#!/bin/bash
+
+current_date=$(date -I)
+nts_dir="$HOME/obsidian/global"
+script_dir="$HOME/my_scripts/obsidian"
+filedate="$script_dir/date"
+
+if [ ! -e $filedate ]; then
+    touch $filedate
+    echo $current_date > $filedate
+elif [ $(cat $filedate) != $current_date ]; then
+    python3 $script_dir/nts.py
+fi
+
+cd $nts_dir
+nvim $nts_dir/main.md

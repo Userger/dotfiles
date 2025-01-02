@@ -1,7 +1,10 @@
 vim.cmd("let g:netrw_liststyle = 3")
+vim.cmd("let g:markdown_fenced_languages = ['lua', 'python']")
 
 local opt = vim.opt
 
+opt.conceallevel = 2
+opt.linebreak = true
 opt.relativenumber = false
 opt.number = true
 
@@ -40,3 +43,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 opt.guicursor = "n-v-i-c:block-Cursor"
+
+opt.wrapscan = false

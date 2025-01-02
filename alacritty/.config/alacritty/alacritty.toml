@@ -1,15 +1,22 @@
 [font]
-size = 15
+size = 10
 
 #normal = { family = "MesloLGS Nerd Font", style = "Regular" }
+normal = { family = "0xProto Nerd Font", style = "Regular" }
+bold = { family = "0xProto Nerd Font", style = "Bold" }
+italic = { family = "0xProto Nerd Font", style = "Italic" }
+bold_italic = { family = "0xProto Nerd Font", style = "Bold Italic" }
 
-#bold = { family =  "MesloLGS Nerd Font", style = "Bold" }
+# bold = { family =  "MesloLGS Nerd Font", style = "Bold" }
 
 #italic = { family = "MesloLGS Nerd Font", style = "Italic" }
 
 #bold_italic = { family = "MesloLGS Nerd Font" , style = "Bold Italic" }
 [window]
-opacity = 0.85
+opacity = 1.0
 [window.dimensions]
 columns = 83
 lines = 18
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+blink_interval = 500

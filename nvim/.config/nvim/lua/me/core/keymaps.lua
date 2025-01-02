@@ -32,10 +32,14 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "<C-d>", "<C-d>zz")
 
 -- new line
-keymap.set("n", "<C-o>", "o<ESC>k0")
-keymap.set("n", "<C-i>", "O<ESC>j0")
+-- keymap.set("n", "<C-o>", "o<ESC>k0")
+-- keymap.set("n", "<C-i>", "O<ESC>j0")
 
 -- delete next line
 -- keymap.set("n", "<C-l>", "jddk0")
 -- delete prev line
 -- keymap.set("n", "<C-y>", "kddj0")
+
+keymap.set("n", "<leader>sw", function()
+	vim.cmd("set wrap!")
+end)
