@@ -10,6 +10,7 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/yegor/.nodejs/bin/"
 export PATH="$PATH:/usr/lib/zig"
 export PATH="$PATH:/home/yegor/.ghostty/bin"
+export PATH="$PATH:/home/yegor/.python3.13/bin"
 # export PATH="$PATH:/home/yegor/scripts/"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -130,19 +131,19 @@ alias cd....="cd ../../../../"
 alias s=source
 cdfunc() {
     # to change exclude go to /home/user/.config/fd/ignore
-    dir=$(fdfind -H -t d . $1 | fzf --preview="tree -L 2 {} | head -n 50")
+    dir=$(fd -H -t d . $1 | fzf --preview="tree -L 2 {} | head -n 50")
     if [ ${#dir} -gt 0 ]; then
         cd $dir
     fi
 }
 alias cdf=cdfunc
 vimfunc() {
-    fdfind -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(vim {})"
+    fd -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(vim {})"
 }
 alias vf=vimfunc
 
 nvimfunc() {
-    fdfind -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(nvim {})"
+    fd -H -t f -E '.pytest_cache' -E '__pycache__' . $1 | fzf --preview="cat {} | head -n 50" --bind="enter:execute(nvim {})"
 }
 alias nvf=nvimfunc
 

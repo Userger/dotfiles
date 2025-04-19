@@ -108,7 +108,7 @@ set visualbell t_vb=
 nnoremap Y v$y
 nnoremap <leader>en :nohl<CR>
 
-colorscheme OceanicNext
+" colorscheme OceanicNext
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
